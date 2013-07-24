@@ -30,6 +30,11 @@ Use expire_fragment
 ```
 if going to update (Sweepers are added advantage)
 ```
+To see cached fragment on console
+```
+rails.cache.read("")
+```
+
 run server
 ```
 rails s
