@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<% cache "Post_cache" do %>
+	<div class="posts">
+	  <h2>Posts</h2>	
+		  <% @posts.each do |post| %>
+		     <%= link_to  post.name , post_path(post) %><br/>
+		  <% end %>
+	</div>
+<% end %>
+
+<% cache @post do %>
+	<div class="post">
+		<h2>Description</h2>
+		<p>
+		  <b>Name:</b>
+		  <%= @post.name %>
+		</p>
+
+		<p>
+		  <b>Content:</b>
+		  <%= @post.content %>
+		</p>
+		<%= link_to 'Edit', edit_post_path(@post) %> |
+		<%= link_to 'Back', posts_path %>
+	</div>
+
+	<div class="comment">
+		<h2>Comments</h2>
+		<% @post.comments.each do |comment| %>
+		  <p>
+		    <strong>Commenter:</strong>
+		    <%= comment.commenter %>
+		  </p>
+		 
+		  <p>
+		    <strong>Comment:</strong>
+		    <%= comment.content %>
+		  </p>
+		<% end %>
+
+		<h2>Add a comment:</h2>
+		<%= form_for([@post, @post.comments.build]) do |f| %>
+			  <p>
+			    <%= f.label :commenter %><br />
+			    <%= f.text_field :commenter %>
+			  </p>
+			  <p>
+			    <%= f.label :content %><br />
+			    <%= f.text_area :content %>
+			  </p>
+			  <p>
+			    <%= f.submit %>
+			  </p>
+		<% end %>
+
+	</div>
+<% end %>
+
+
+
