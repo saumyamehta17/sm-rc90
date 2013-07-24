@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Railscast sm-rc90
 ==================
 
@@ -40,3 +41,7 @@ run server
 rails s
 ```
 
+=======
+sm-rc90
+=======
+>>>>>>> 9129c195e0af0a13cfc62c19d15407baf37a3c4a
